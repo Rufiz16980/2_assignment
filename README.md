@@ -22,8 +22,8 @@ The `SharedBufferState<T>` class initializes a fixed-size internal array (`Objec
 The design assumes a single writer per shared buffer state.  
 Only one `SingleWriterImpl<T>` should be created for a given `SharedBufferState<T>`.
 
-> ⚠ **Important Note:**  
-> The current design enforces single-writer usage by convention and architecture, not by runtime restriction.  
+>  **Important Note:**  
+> The current design enforces single-writer usage by convention, not by runtime restriction.  
 > The assignment requirements do not explicitly demand preventing multiple writer instances, therefore the system assumes correct usage rather than enforcing it via Singleton or hard constraints.
 
 ### 3. Multiple Readers
@@ -111,13 +111,28 @@ To run tests (JUnit):
 
 ---
 
-## Summary
+## Notes on Diagrams
 
-This implementation satisfies:
+### UML Class Diagram
 
-- Fixed capacity buffer
-- Multiple independent readers
-- Single-writer design assumption
-- Safe overwrite behavior
-- Proper object-oriented separation of responsibilities
+The UML Class Diagram was generated using the built-in diagram tools of **IntelliJ IDEA**.
 
+- The diagram is automatically derived from the source code.
+- It follows standard **UML 2.x class diagram conventions** (classes, interfaces, attributes, methods, visibility, associations, and realizations).
+- Since the diagram is generated directly from the implemented code, it accurately reflects the actual structure of the system.
+
+### UML Sequence Diagrams
+
+The sequence diagrams for `read()` and `write()` were written using **Mermaid** syntax and visualized using:
+
+https://mermaid.live/edit
+
+They follow standard UML sequence diagram semantics:
+- Lifelines (participants)
+- Message calls
+- Return values
+- Loop fragments
+- Alternative (`alt`) and optional (`opt`) fragments
+
+These diagrams were manually written to precisely match the implementation logic.
+The diagram PNGs as well as mermaid codes are in assets
